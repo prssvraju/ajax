@@ -1,0 +1,40 @@
+<html>
+    <head>
+        <script>
+            function testin()
+            {
+                alert("hello");
+            }
+            function myfun()
+            {
+                try{
+                    var myrequest= new XMLHttpRequest();
+                }
+                catch(e1)
+                {
+                    alert("your browser dose not support ajax");
+                }
+                myrequest.onreadystatechange = function()
+                {
+                    if(myrequest.readyState == 4)
+                    {
+                        processInfo(myrequest.responseText);
+                    }
+                
+
+                }
+                myrequest.open("GET","http://localhost/ajax/simpleserver.php",true);
+                myrequest.send(null);
+            }
+
+            function processInfo(response)
+            {
+                document.getElementById("result").innerHTML =response;
+            }
+        </script>
+    </head>
+    <body>
+        <input type="button" value="click" onclick="myfun()"/>
+        <p id="result"></p>
+    </body>
+</html>
