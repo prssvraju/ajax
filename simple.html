@@ -17,13 +17,10 @@
                     {
                         processInfo(myrequest.responseText);
                     }
-                
-
                 }
                 myrequest.open("GET","http://localhost/ajax/simpleserver.php",true);
                 myrequest.send(null);
             }
-
             function processInfo(response)
             {
                 document.getElementById("result").innerHTML =response;
